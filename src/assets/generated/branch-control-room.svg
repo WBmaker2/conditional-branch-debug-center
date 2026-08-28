@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" role="img" aria-label="밝은 교실의 가상 조절 작업대 일러스트">
+  <!-- 배경: 밝은 교실 벽과 바닥 -->
+  <rect width="1440" height="900" fill="#eef5fb"/>
+  <rect y="620" width="1440" height="280" fill="#dde9f3"/>
+  <circle cx="220" cy="150" r="70" fill="#fff7dc"/>
+  <circle cx="220" cy="150" r="46" fill="#ffe9a3"/>
+
+  <!-- 규칙 레일: 선·기호 중심 (글자 없음) -->
+  <g stroke="#9db8cc" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M120 250 H420"/>
+    <path d="M120 250 V330 H420"/>
+    <path d="M1020 250 H1320"/>
+    <path d="M1020 250 V330 H1320"/>
+  </g>
+  <g fill="#9db8cc">
+    <path d="M420 236l24 14-24 14z"/>
+    <path d="M420 316l24 14-24 14z"/>
+    <path d="M1320 236l24 14-24 14z"/>
+    <path d="M1320 316l24 14-24 14z"/>
+  </g>
+
+  <!-- 분기 다이아몬드 -->
+  <g>
+    <rect x="660" y="150" width="120" height="120" rx="18" transform="rotate(45 720 210)" fill="#ffffff" stroke="#1a63c9" stroke-width="8"/>
+    <path d="M580 210 H660" stroke="#1a63c9" stroke-width="8" stroke-linecap="round"/>
+    <path d="M780 210 H860" stroke="#1a63c9" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="560" cy="210" r="14" fill="#0c7a43"/>
+    <circle cx="880" cy="210" r="14" fill="#b45309"/>
+  </g>
+
+  <!-- 작업대 -->
+  <rect x="120" y="640" width="1200" height="36" rx="14" fill="#b8865f"/>
+  <rect x="160" y="676" width="80" height="150" fill="#a3714c"/>
+  <rect x="1200" y="676" width="80" height="150" fill="#a3714c"/>
+
+  <!-- 가상 전등 -->
+  <g>
+    <rect x="250" y="470" width="120" height="150" rx="16" fill="#ffffff" stroke="#c9d8e2" stroke-width="6"/>
+    <rect x="278" y="500" width="64" height="12" rx="6" fill="#1a63c9"/>
+    <rect x="278" y="526" width="40" height="12" rx="6" fill="#9db8cc"/>
+    <circle cx="310" cy="580" r="24" fill="#ffe9a3" stroke="#e8b93c" stroke-width="6"/>
+  </g>
+
+  <!-- 화분 -->
+  <g>
+    <rect x="470" y="520" width="130" height="100" rx="12" fill="#ffffff" stroke="#c9d8e2" stroke-width="6"/>
+    <path d="M535 520 v-40" stroke="#0c7a43" stroke-width="8" stroke-linecap="round"/>
+    <path d="M535 500 c-30 -8 -40 -34 -38 -52 26 2 40 22 38 52z" fill="#3d9960"/>
+    <path d="M535 492 c30 -10 36 -34 32 -54 -24 4 -36 26 -32 54z" fill="#2f7f4e"/>
+    <path d="M498 520 h74 l-10 44 h-54z" fill="#d98e4a"/>
+  </g>
+
+  <!-- 선풍기 -->
+  <g>
+    <rect x="680" y="510" width="140" height="110" rx="16" fill="#ffffff" stroke="#c9d8e2" stroke-width="6"/>
+    <circle cx="750" cy="560" r="40" fill="#e7f0fc" stroke="#1a63c9" stroke-width="6"/>
+    <path d="M750 560 l26 -22 M750 560 l-6 32 M750 560 l-26 -10" stroke="#1a63c9" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- 책 -->
+  <g>
+    <rect x="880" y="540" width="130" height="80" rx="10" fill="#ffffff" stroke="#c9d8e2" stroke-width="6"/>
+    <rect x="906" y="560" width="44" height="40" rx="6" fill="#e7f0fc" stroke="#1a63c9" stroke-width="5"/>
+    <rect x="962" y="560" width="26" height="8" rx="4" fill="#9db8cc"/>
+    <rect x="962" y="578" width="26" height="8" rx="4" fill="#9db8cc"/>
+  </g>
+
+  <!-- 버스 정류장 표지 -->
+  <g>
+    <rect x="1070" y="440" width="110" height="180" rx="16" fill="#ffffff" stroke="#c9d8e2" stroke-width="6"/>
+    <rect x="1092" y="466" width="66" height="44" rx="8" fill="#ffd985"/>
+    <circle cx="1108" cy="540" r="10" fill="#9db8cc"/>
+    <circle cx="1136" cy="540" r="10" fill="#9db8cc"/>
+    <rect x="1092" y="566" width="66" height="12" rx="6" fill="#9db8cc"/>
+  </g>
+
+  <!-- 규칙 카드 더미 -->
+  <g>
+    <rect x="1240" y="540" width="90" height="80" rx="10" fill="#ffffff" stroke="#c9d8e2" stroke-width="6"/>
+    <path d="M1262 566 h46 M1262 586 h34 M1262 602 h46" stroke="#9db8cc" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>
