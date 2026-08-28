@@ -1,4 +1,4 @@
-import type { Clause, InputCase, LearningMission, MissionId, Rule } from '../domain/types';
+import type { Clause, InputCase, LearningMission, MissionId } from '../domain/types';
 import { validateContent } from './validateContent';
 
 // 계획 §4: 런타임 무작위 생성 없이 검수된 고정 미션 6개만 제공한다.

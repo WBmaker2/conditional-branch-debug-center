@@ -179,7 +179,8 @@ describe('세션 reducer 전이 잠금 (계획 §9)', () => {
 
   it('정의되지 않은 action은 상태를 바꾸지 않는다', () => {
     const state = startSession();
-    expect(sessionReducer(state, { type: '없는-액션' as unknown as SessionAction })).toBe(state);
+    const unknown = { type: '없는-액션' } as unknown as SessionAction;
+    expect(sessionReducer(state, unknown)).toBe(state);
   });
 
   it('재시작 확인 뒤 초기 상태를 새 객체로 만든다', () => {

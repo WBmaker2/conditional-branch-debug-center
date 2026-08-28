@@ -7,13 +7,7 @@ import {
   evaluateRepair,
   runRuleSet,
 } from './branchEvaluator';
-import type { BranchMission, Clause, InputCase, LearningMission } from './types';
-
-function clauseOf(mission: BranchMission, clauseId: string): Clause {
-  const found = mission.clauses.find((c) => c.id === clauseId);
-  if (!found) throw new Error(`절 없음: ${clauseId}`);
-  return found;
-}
+import type { BranchMission, InputCase, LearningMission } from './types';
 
 function caseOf(mission: BranchMission, inputId: string): InputCase {
   const found = mission.finiteDomain.find((c) => c.id === inputId);
