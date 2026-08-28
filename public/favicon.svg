@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="조건 분기 디버그 센터 로고">
+  <rect width="64" height="64" rx="14" fill="#eaf2ff"/>
+  <path d="M32 8 52 28 32 48 12 28Z" fill="#ffffff" stroke="#2563eb" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M32 48v6" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="22" cy="56" r="4" fill="#0f7b46"/>
+  <circle cx="42" cy="56" r="4" fill="#b45309"/>
+</svg>
