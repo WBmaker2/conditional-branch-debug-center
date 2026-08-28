@@ -1,4 +1,4 @@
-import { useEffect, useRef, type KeyboardEvent, type ReactNode } from 'react';
+import { useEffect, useId, useRef, type KeyboardEvent, type ReactNode } from 'react';
 
 interface ModalDialogProps {
   open: boolean;
@@ -12,6 +12,7 @@ const FOCUSABLE =
 
 // 계획 §12 Task 6: Escape와 닫기 버튼을 지원하고 닫은 뒤 호출 버튼으로 초점을 복원한다.
 export function ModalDialog({ open, title, onClose, children }: ModalDialogProps) {
+  const titleId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
 
@@ -55,13 +56,13 @@ export function ModalDialog({ open, title, onClose, children }: ModalDialogProps
       <div
         role="dialog"
         aria-modal="true"
-        aria-labelledby="modal-title"
+        aria-labelledby={titleId}
         className="modal-dialog"
         ref={dialogRef}
         tabIndex={-1}
         onKeyDown={handleKeyDown}
       >
-        <h2 id="modal-title" className="modal-dialog__title">
+        <h2 id={titleId} className="modal-dialog__title">
           {title}
         </h2>
         {children}

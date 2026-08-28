@@ -9,12 +9,12 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   use: {
-    baseURL: `http://127.0.0.1:4173${BASE}`,
+    baseURL: `http://127.0.0.1:4180${BASE}`,
     viewport: { width: 1280, height: 800 },
   },
   webServer: {
     command: 'npm run preview',
-    url: `http://127.0.0.1:4173${BASE}`,
+    url: `http://127.0.0.1:4180${BASE}`,
     reuseExistingServer: !process.env.CI,
     timeout: 30_000,
   },

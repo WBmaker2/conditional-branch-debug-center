@@ -6,7 +6,8 @@ export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? '/conditional-branch-debug-center/' : '/',
   plugins: [react()],
   preview: {
-    port: 4173,
+    host: '127.0.0.1',
+    port: 4180,
     strictPort: true,
   },
 }));
