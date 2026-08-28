@@ -36,7 +36,11 @@
 
 ## 출시 게이트 (계획 §1·Task 9)
 
-- [ ] `npm run verify` 통과 후 별도 출시 승인
-- [ ] WBmaker2/conditional-branch-debug-center 원격 생성·push (승인 후)
-- [ ] GitHub Pages 확인: 제목·favicon·자산·콘솔 오류 0건·학습 흐름·375px
-- [ ] HVC 등록 및 vibehong.shop 갤러리 동기화 (공개 앱 확인 후 별도 단계)
+- [x] `npm run verify` 통과 후 별도 출시 승인 — 2026-08-28 사용자 승인
+- [x] WBmaker2/conditional-branch-debug-center 원격 생성·main push (https://github.com/WBmaker2/conditional-branch-debug-center)
+- [x] GitHub Pages 배포 (build_type=workflow, Deploy Pages run 33179590621 success)
+- [x] 공개 앱 확인(2026-08-28, 실제 브라우저): 제목 "조건 분기 디버그 센터" · favicon 200 · 자산 로딩 실패 0 · 콘솔 오류 0건 · 미션 1 실제 학습 흐름 완주 · 375px 가로 넘침 없음
+- [ ] HVC 등록 및 vibehong.shop 갤러리 동기화 — 공개 앱 확인 완료, 관리자 등록 별도 단계 대기
+
+배포 URL: https://wbmaker2.github.io/conditional-branch-debug-center/
+확인 링크: https://www.vibehong.shop/ (HVC 갤러리 동기화 후)
