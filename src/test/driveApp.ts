@@ -87,8 +87,12 @@ export async function playMission(user: UserEvent, index: number): Promise<void>
   await user.click(screen.getByRole('radio', { name: script.mode }));
   if (script.rule) await user.click(screen.getByRole('radio', { name: script.rule }));
   if (script.clause) await user.click(screen.getByRole('radio', { name: script.clause }));
-  if (script.operator) await user.click(screen.getByRole('radio', { name: script.operator }));
-  if (script.value) await user.click(screen.getByRole('radio', { name: script.value }));
+  if (script.operator) {
+    await user.click(screen.getByRole('radio', { name: script.operator }));
+  }
+  if (script.value) {
+    await user.click(screen.getByRole('radio', { name: script.value }));
+  }
   if (script.extra) await user.click(screen.getByRole('radio', { name: script.extra }));
   await user.click(screen.getByRole('button', { name: '수정안 재시험' }));
 

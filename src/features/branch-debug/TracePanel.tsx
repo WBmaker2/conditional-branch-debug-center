@@ -23,7 +23,8 @@ export function TracePanel({ mission, input, record, dispatch }: TracePanelProps
       <h2 id="trace-heading" className="card__title">
         2단계 · 규칙 추적판
       </h2>
-      <p>
+      <p className="step-instruction">아래 규칙을 한 줄씩 시험하고, 각 줄의 결과를 확인하세요.</p>
+      <p className="case-context">
         사례:
         {caseChips(mission, input).map((chip) => (
           <span key={chip} className="case-chip">
@@ -46,9 +47,9 @@ export function TracePanel({ mission, input, record, dispatch }: TracePanelProps
                 <span className="rule-row__name">{ruleName(rule, mission)}</span>
                 {isRevealed ? (
                   hit ? (
-                    <span className="badge badge--ok">✓ 당첨</span>
+                    <span className="badge badge--ok">✓ 맞음</span>
                   ) : (
-                    <span className="badge badge--warn">✗ 실패</span>
+                    <span className="badge badge--warn">✗ 안 맞음</span>
                   )
                 ) : (
                   <span className="badge">? 아직 시험 전</span>

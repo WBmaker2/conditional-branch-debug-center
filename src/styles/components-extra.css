@@ -1,0 +1,96 @@
+/* 대화상자 */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 40, 60, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 20;
+}
+
+.modal-dialog {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border: 2px solid var(--color-line);
+  box-shadow: var(--shadow);
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow: auto;
+  padding: 20px;
+}
+
+.modal-dialog__title {
+  margin-top: 0;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.update-list {
+  padding-left: 20px;
+}
+
+/* 기록판 */
+.report-card {
+  border-top: 4px solid var(--color-accent);
+}
+
+.report-card dl {
+  display: grid;
+  grid-template-columns: minmax(120px, auto) 1fr;
+  gap: 6px 14px;
+  margin: 8px 0 0;
+}
+
+.report-card dt {
+  font-weight: 800;
+  color: var(--color-ink-soft);
+}
+
+.report-card dd {
+  margin: 0;
+}
+
+.next-learning {
+  border-top: 4px solid var(--color-accent);
+}
+
+/* 좁은 화면: 표를 행 단위로 읽게 한다 (계획 §12 Task 8) */
+@media (max-width: 480px) {
+  .retest-summary {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .retest-table thead {
+    display: none;
+  }
+
+  .retest-table tr {
+    display: block;
+    border: 1.5px solid var(--color-line);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    background: var(--color-surface);
+  }
+
+  .retest-table td {
+    display: block;
+    border: none;
+    border-bottom: 1px dashed var(--color-line);
+  }
+
+  .retest-table td::before {
+    content: attr(data-th);
+    display: inline-block;
+    min-width: 42%;
+    font-weight: 800;
+  }
+}

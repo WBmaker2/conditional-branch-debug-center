@@ -7,8 +7,8 @@ const SOURCE = '2026-08-28 구현 계획 §4.1 고정 fixture 기반 · docs/con
 
 const KID_NOTES = {
   gap: '어떤 규칙에도 맞지 않아 아무 일도 일어나지 않는 사례가 있어요.',
-  overlap: '두 개 이상의 규칙이 동시에 당첨되는 사례가 있어요.',
-  deterministic: '모든 사례가 딱 한 규칙씩 당첨돼요.',
+  overlap: '두 개 이상의 규칙에 동시에 맞는 사례가 있어요.',
+  deterministic: '모든 사례에 맞는 규칙이 딱 하나씩 있어요.',
 } as const;
 
 function numberCases(idPrefix: string, field: string, values: readonly number[]): InputCase[] {
@@ -38,7 +38,7 @@ const lampMission: LearningMission = {
   content: {
     title: '가상 전등 밝기 조절소',
     scene:
-      '방 안의 가상 전등은 밝기 센서 값(0~5단계)에 따라 켜지고 꺼려요. 그런데 밝기 2에서 전등이 멈춰 버린다는 통보가 왔어요.',
+      '방 안의 가상 전등은 밝기 센서 값(0~5단계)에 따라 켜지고 꺼져요. 그런데 밝기 2에서 전등이 멈춘다는 제보가 왔어요.',
     goal: '밝기 2 사례를 시험해 빠진 조건(갭)을 찾고, 조건 한 곳만 고쳐 완성해요.',
     focusInputId: 'lamp-b2',
     fields: [{ name: 'brightness', label: '밝기', kind: 'number', unit: '단계' }],
@@ -103,7 +103,7 @@ const plantMission: LearningMission = {
   content: {
     title: '화분 물 주기 검사소',
     scene:
-      '화분 센서는 흙 촉촉함(1~3)과 비 예보(예/아니오)를 알려 줘요. 물 주기 규칙과 기다리기 규칙이 동시에 당첨되는 사례가 있다는 신고가 왔어요.',
+      '화분 센서는 흙 촉촉함(1~3)과 비 예보(예/아니오)를 알려 줘요. 물 주기 규칙과 기다리기 규칙에 동시에 맞는 사례가 있다는 신고가 왔어요.',
     goal: '겹침 사례를 찾아 조건을 좁히거나 실행 순서를 정해요.',
     focusInputId: 'plant-m1-r1',
     fields: [
@@ -324,7 +324,7 @@ const sorterMission: LearningMission = {
   content: {
     title: '재질 분류기 점검실',
     scene:
-      '가상 쓰레기 분류기는 재질(종이/플라스틱)과 오염 상태(깨끗함/더러움)를 봐요. 더러운 종이가 종이 통 규칙과 먼저 확인 규칙에 동시에 당첨된대요.',
+      '가상 쓰레기 분류기는 재질(종이/플라스틱)과 오염 상태(깨끗함/더러움)를 봐요. 더러운 종이가 종이 통 규칙과 먼저 확인 규칙에 동시에 맞는대요.',
     goal: '재질만 보고 실행되는 규칙을 찾아 조건을 추가하거나 실행 순서를 정해요.',
     focusInputId: 'sort-paper-dirty',
     fields: [
@@ -415,7 +415,7 @@ const busMission: LearningMission = {
     title: '셔틀 버스 배차 검증소',
     scene:
       '가상 셔틀은 자리 수와 대기 인원을 보아 출발하지 않기·다음 버스 기다리기·전부 탑승·자리만큼만 탑승을 정해요. 이 미션은 규칙이 완성되어 있어요.',
-    goal: '여섯 개 고정 사례를 모두 시험해 모든 사례가 정확히 한 규칙에 당첨되는지 확인해요.',
+    goal: '여섯 개 고정 사례를 모두 시험해 각 사례에 맞는 규칙이 하나씩인지 확인해요.',
     focusInputId: 'bus-s1-w1',
     fields: [
       { name: 'seats', label: '자리 수', kind: 'number', unit: '개' },

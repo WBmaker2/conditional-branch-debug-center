@@ -21,7 +21,7 @@ function acceptMessages(mission: LearningMission, record: MissionRecord): string
     messages.push('딱 한 곳만 고쳤어요.');
   }
   if (keys.includes('coverage:all-decided')) {
-    messages.push(`${mission.finiteDomain.length}개 사례 모두에서 규칙이 정확히 하나씩 당첨됐어요.`);
+    messages.push(`${mission.finiteDomain.length}개 사례 모두에 맞는 규칙이 정확히 하나씩 있어요.`);
   }
   if (keys.includes('coverage:overlap-with-priority')) {
     messages.push(
@@ -35,7 +35,7 @@ function rejectMessages(mission: LearningMission, record: MissionRecord): string
   const keys = record.evaluation?.evidenceKeys ?? [];
   const messages: string[] = ['아직 통과하지 못했어요. 근거를 볼까요?'];
   if (keys.includes('coverage:gaps-remain')) {
-    messages.push('아직 아무 규칙에도 당첨되지 않는 사례가 남았어요. 표에서 갭 행을 찾아보세요.');
+    messages.push('아직 어떤 규칙에도 맞지 않는 사례가 남았어요. 표에서 갭 행을 찾아보세요.');
   }
   if (keys.includes('change:not-minimal')) {
     messages.push('한 번에 한 군데만 고칠 수 있어요. 조건 하나 또는 순서 하나만 바꿔 보세요.');
@@ -73,6 +73,15 @@ export function RetestPanel({ mission, record, isLastMission, dispatch }: Retest
           </>
         )}
       </p>
+      <div className={`retest-summary ${accepted ? 'retest-summary--success' : 'retest-summary--review'}`}>
+        <span className="retest-summary__label">재시험 요약</span>
+        <strong>{accepted ? '통과' : '다시 살펴보기'}</strong>
+        <span>
+          {accepted
+            ? `전체 ${runs.length}개 사례에 행동이 정해졌어요.`
+            : `${runs.filter((run) => run.diagnosis !== 'deterministic').length}개 사례를 다시 확인해 보세요.`}
+        </span>
+      </div>
       <table className="retest-table">
         <caption className="sr-only">{mission.content.title} 전체 사례 재시험 결과</caption>
         <thead>

@@ -30,8 +30,12 @@ async function playMission(page: Page, index: number): Promise<void> {
   await page.getByRole('radio', { name: new RegExp(MODES[index]) }).click();
   if (RULES[index]) await page.getByRole('radio', { name: new RegExp(RULES[index]) }).click();
   if (CLAUSES[index]) await page.getByRole('radio', { name: CLAUSES[index], exact: true }).click();
-  if (OPERATORS[index]) await page.getByRole('radio', { name: OPERATORS[index] }).click();
-  if (VALUES[index]) await page.getByRole('radio', { name: VALUES[index] }).click();
+  if (OPERATORS[index]) {
+    await page.getByRole('radio', { name: OPERATORS[index], exact: true }).click();
+  }
+  if (VALUES[index]) {
+    await page.getByRole('radio', { name: VALUES[index], exact: true }).click();
+  }
   if (EXTRAS[index]) await page.getByRole('radio', { name: EXTRAS[index], exact: true }).click();
   await page.getByRole('button', { name: '수정안 재시험' }).click();
   await expect(page.getByText(/통과!/)).toBeVisible();

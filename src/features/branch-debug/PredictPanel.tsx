@@ -21,8 +21,8 @@ export function PredictPanel({ mission, input, record, dispatch }: PredictPanelP
       <h2 id="predict-heading" className="card__title">
         1단계 · 예측판
       </h2>
-      <p>이 사례를 규칙에 넣어 볼 거예요:</p>
-      <div className="case-chips">
+      <p className="step-instruction">이 사례를 규칙에 넣었을 때 어떤 행동이 나올지 먼저 예상하세요.</p>
+      <div className="case-chips" aria-label="시험할 입력 사례">
         {caseChips(mission, input).map((chip) => (
           <span key={chip} className="case-chip">
             {chip}

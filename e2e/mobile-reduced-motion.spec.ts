@@ -37,7 +37,7 @@ for (const viewport of [
     await page.getByRole('radio', { name: /조건 고치기/ }).click();
     await page.getByRole('radio', { name: /전등 켜기 규칙/ }).click();
     await page.getByRole('radio', { name: '밝기: 2단계보다 작음', exact: true }).click();
-    await page.getByRole('radio', { name: '보다 작거나 같다(≤)' }).click();
+    await page.getByRole('radio', { name: '보다 작거나 같다(≤)', exact: true }).click();
     await page.getByRole('button', { name: '수정안 재시험' }).click();
     await expect(page.getByText('5단계 · 재시험판')).toBeVisible();
     await expectNoHorizontalOverflow(page);

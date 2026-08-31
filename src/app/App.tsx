@@ -76,6 +76,9 @@ function AppShell() {
 
   return (
     <div className="app-shell">
+      <a className="skip-link" href="#main-content">
+        본문으로 건너뛰기
+      </a>
       <header className="app-header">
         <span className="app-header__brand">조건 분기 디버그 센터</span>
         <div className="app-header__tools">
@@ -84,7 +87,7 @@ function AppShell() {
         </div>
       </header>
       <ProgressSteps current={state.step} />
-      <main>
+      <main id="main-content">
         <h1 ref={mainHeadingRef} tabIndex={-1} className="main-heading">
           {headingText}
         </h1>

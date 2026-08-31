@@ -19,6 +19,7 @@ export function ProgressSteps({ current }: { current: SessionStep }) {
             key={step.key}
             className={`progress__step${step.key === current ? ' is-current' : ''}`}
             aria-current={step.key === current ? 'step' : undefined}
+            aria-label={`${index + 1}단계 ${step.label}`}
           >
             <span className="progress__num" aria-hidden="true">
               {index + 1}

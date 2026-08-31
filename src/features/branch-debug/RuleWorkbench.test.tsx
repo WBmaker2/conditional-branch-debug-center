@@ -33,7 +33,7 @@ describe('핵심 학습 화면 흐름', () => {
       await user.click(screen.getByRole('button', { name: '규칙 시험하기' }));
     }
     // 밝기 2 사례는 갭이라 두 규칙 모두 실패로 표시된다.
-    expect(screen.getAllByText('✗ 실패')).toHaveLength(missions[0].rules.length);
+    expect(screen.getAllByText('✗ 안 맞음')).toHaveLength(missions[0].rules.length);
     await user.click(screen.getByRole('button', { name: '진단하러 가기' }));
     expect(screen.getByText('3단계 · 진단판')).toBeInTheDocument();
     expect(screen.queryByText('4단계 · 수리판')).not.toBeInTheDocument();
@@ -70,7 +70,7 @@ describe('핵심 학습 화면 흐름', () => {
     await user.click(screen.getByRole('button', { name: '수정안 재시험' }));
 
     expect(screen.getByText('5단계 · 재시험판')).toBeInTheDocument();
-    expect(screen.getByText(/아직 아무 규칙에도 당첨되지 않는 사례가 남았어요/)).toBeInTheDocument();
+    expect(screen.getByText(/아직 어떤 규칙에도 맞지 않는 사례가 남았어요/)).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: '다음 미션 열기' })).not.toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: '다시 고치기' }));

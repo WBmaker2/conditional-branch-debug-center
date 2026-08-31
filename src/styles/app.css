@@ -35,6 +35,23 @@ body {
   padding: 12px 16px 48px;
 }
 
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 30;
+  transform: translateY(-160%);
+  border-radius: 8px;
+  background: var(--color-ink);
+  color: #ffffff;
+  padding: 8px 12px;
+  font-weight: 800;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .app-header {
   display: flex;
   align-items: center;
@@ -42,6 +59,7 @@ body {
   gap: 12px;
   flex-wrap: wrap;
   padding: 8px 0;
+  border-bottom: 1px solid var(--color-line);
 }
 
 .app-header__brand {
@@ -58,7 +76,7 @@ body {
 
 .main-heading {
   font-size: 1.5rem;
-  margin: 8px 0 16px;
+  margin: 18px 0 16px;
 }
 
 .main-heading:focus {
@@ -67,8 +85,8 @@ body {
 
 /* 진행 단계 */
 .progress__list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 6px;
   list-style: none;
   margin: 0 0 16px;
@@ -78,7 +96,9 @@ body {
 .progress__step {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  min-width: 0;
   padding: 4px 10px;
   border: 1.5px solid var(--color-line);
   border-radius: 999px;
@@ -115,11 +135,52 @@ body {
 .entrance__hero {
   display: block;
   width: 100%;
-  max-height: 42vh;
+  height: clamp(200px, 30vw, 300px);
   object-fit: cover;
   border-radius: var(--radius);
   border: 2px solid var(--color-line);
   background: var(--color-surface);
+}
+
+.entrance__intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr);
+  gap: 20px;
+  align-items: start;
+  margin-top: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.next-action-card {
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius);
+  background: var(--color-accent-soft);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.next-action-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+
+.next-action-card p:not(.eyebrow) {
+  margin: 0 0 12px;
+}
+
+.next-action-card__meta {
+  display: block;
+  margin-top: 10px;
+  color: var(--color-ink-soft);
+  font-size: 0.9rem;
 }
 
 .entrance__lead {
@@ -140,7 +201,31 @@ body {
 }
 
 .notice p {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   margin: 4px 0;
+}
+
+.notice__mark {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.notice__mark--info {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+.notice__mark--warning {
+  background: var(--color-warn);
+  color: #ffffff;
 }
 
 .entrance__start {
@@ -161,7 +246,7 @@ body {
   padding-top: 64px;
 }
 
-/* 좁은 화면: 현재 단계 라벨만 남긴다 */
+/* 좁은 화면: 단계는 한 줄 숫자로 안정화하고 현재 설명은 제목에서 제공한다. */
 @media (max-width: 480px) {
   .app-shell {
     padding: 8px 10px 40px;
@@ -171,7 +256,23 @@ body {
     display: none;
   }
 
-  .progress__step.is-current .progress__label {
-    display: inline;
+  .progress__list {
+    gap: 4px;
+  }
+
+  .progress__step {
+    gap: 0;
+    padding: 4px;
+  }
+
+  .progress__num {
+    width: 22px;
+    height: 22px;
+  }
+
+  .entrance__intro-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 18px;
   }
 }

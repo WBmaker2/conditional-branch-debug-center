@@ -52,7 +52,7 @@ export function LearningReport({ state, onRestartRequest }: LearningReportProps)
               <dt>고쳐야 했던 사례</dt>
               <dd>
                 {failed.length === 0
-                  ? '없었어요. 처음부터 모든 사례가 규칙 하나씩에 당첨됐어요.'
+                  ? '없었어요. 처음부터 각 사례에 맞는 규칙이 하나씩 있었어요.'
                   : failed
                       .map((run) => {
                         const input = mission.finiteDomain.find((c) => c.id === run.inputId);
@@ -73,6 +73,16 @@ export function LearningReport({ state, onRestartRequest }: LearningReportProps)
           </section>
         );
       })}
+      <section className="card next-learning" aria-labelledby="next-learning-heading">
+        <p className="eyebrow">다음에 해 볼 일</p>
+        <h2 id="next-learning-heading" className="card__title">
+          친구에게 규칙을 설명해 보세요
+        </h2>
+        <p>
+          미션 하나를 골라 <strong>입력 → 조건 → 행동</strong>의 순서를 친구에게 설명해 보세요.
+          어떤 조건에서 갭이나 겹침이 생겼는지도 함께 말해 보면 좋아요.
+        </p>
+      </section>
       <div className="actions-row no-print">
         <ActionButton onClick={() => window.print()}>인쇄하기</ActionButton>
         <ActionButton variant="secondary" onClick={onRestartRequest}>

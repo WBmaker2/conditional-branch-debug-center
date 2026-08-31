@@ -1,7 +1,7 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 
 // 계획 §12 Task 8: 키보드만으로 규칙 행, 연산자, 재시험 버튼을 조작한다.
-// 라디오 그룹은 Tab으로 진입해 ArrowDown으로 선택을 옮기는 표준 키보드 상호작용을 쓴다.
+// 라디오 그룹은 Tab으로 진입해 표준 화살표·Space 상호작용을 쓴다.
 async function tabUntilFocused(page: Page, target: Locator, maxTabs = 40): Promise<void> {
   for (let i = 0; i < maxTabs; i += 1) {
     if (await target.evaluate((element) => element === document.activeElement)) return;
@@ -42,11 +42,11 @@ test('키보드만으로 안내 미션을 완주한다', async ({ page }) => {
   await selectGroupRadio(page, page.getByRole('radio', { name: /갭/ }), 0);
   await pressWhenFocused(page, page.getByRole('button', { name: '진단 완료하기' }), 'Enter');
 
-  // 수리: 모드 → 규칙 → 조건 → 연산자(한 칸 내려가 ≤ 선택).
+  // 수리: 모드 → 규칙 → 조건 → 연산자(첫 후보에서 한 칸 내려가 ≤ 선택).
   await selectGroupRadio(page, page.getByRole('radio', { name: /조건 고치기/ }), 0);
   await selectGroupRadio(page, page.getByRole('radio', { name: /전등 켜기 규칙/ }), 0);
   await selectGroupRadio(page, page.getByRole('radio', { name: '밝기: 2단계보다 작음', exact: true }), 0);
-  await selectGroupRadio(page, page.getByRole('radio', { name: '보다 작다(<)' }), 1);
+  await selectGroupRadio(page, page.getByRole('radio', { name: '보다 작다(<)', exact: true }), 1);
 
   const retest = page.getByRole('button', { name: '수정안 재시험' });
   await expect(retest).toBeEnabled();

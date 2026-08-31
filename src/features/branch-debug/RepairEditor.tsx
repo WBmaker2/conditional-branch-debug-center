@@ -140,6 +140,7 @@ export function RepairEditor({ mission, input, record, dispatch }: RepairEditorP
       <h2 id="repair-heading" className="card__title">
         4단계 · 수리판
       </h2>
+      <p className="step-instruction">한 곳을 바꾼 뒤, 모든 사례에서 결과가 달라졌는지 확인하세요.</p>
       <p>
         사례:
         <span className="case-chip">
@@ -263,9 +264,10 @@ export function RepairEditor({ mission, input, record, dispatch }: RepairEditorP
           </div>
           {editingClause && (
             <>
-              <div className="choice-list">
+              <p className="field-label">새 연산자</p>
+              <div className="choice-list choice-list--compact">
                 {OPERATOR_CHOICES.map((item) => (
-                  <label key={item.operator} className="choice">
+                  <label key={item.operator} className="choice choice--compact">
                     <input
                       type="radio"
                       name="repair-operator"
@@ -277,19 +279,22 @@ export function RepairEditor({ mission, input, record, dispatch }: RepairEditorP
                 ))}
               </div>
               {!isFieldReference(editingClause.expected) && (
-                <div className="choice-list">
-                  {valueOptions(mission, editingClause).map((option) => (
-                    <label key={option.raw} className="choice">
-                      <input
-                        type="radio"
-                        name="repair-value"
-                        checked={valueRaw === option.raw}
-                        onChange={() => setValueRaw(option.raw)}
-                      />
-                      기준값: {option.label}
-                    </label>
-                  ))}
-                </div>
+                <>
+                  <p className="field-label">새 기준값</p>
+                  <div className="choice-list choice-list--compact">
+                    {valueOptions(mission, editingClause).map((option) => (
+                      <label key={option.raw} className="choice choice--compact">
+                        <input
+                          type="radio"
+                          name="repair-value"
+                          checked={valueRaw === option.raw}
+                          onChange={() => setValueRaw(option.raw)}
+                        />
+                        기준값: {option.label}
+                      </label>
+                    ))}
+                  </div>
+                </>
               )}
               {isFieldReference(editingClause.expected) && (
                 <p>이 조건은 다른 필드와 비교해요. 연산자만 바꿀 수 있어요.</p>

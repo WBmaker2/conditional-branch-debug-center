@@ -4,7 +4,7 @@ import { ActionButton } from '../../components/ActionButton';
 import { runRuleSet } from '../../domain/branchEvaluator';
 import type { InputCase, LearningMission } from '../../domain/types';
 import { FeedbackPanel } from './FeedbackPanel';
-import { DIAGNOSIS_CHOICES } from './labels';
+import { DIAGNOSIS_CHOICES, ruleName } from './labels';
 
 interface DiagnosePanelProps {
   mission: LearningMission;
@@ -34,10 +34,31 @@ export function DiagnosePanel({ mission, input, record, dispatch }: DiagnosePane
       <h2 id="diagnose-heading" className="card__title">
         3단계 · 진단판
       </h2>
-      <p>
-        위 추적판의 "✓ 당첨" 표시를 보고, 이 사례의 진단을 직접 골라 보세요. 정답을 알려 주기 전에
-        근거를 세어 보는 게 디버그 관리자의 방법이에요.
+      <p className="step-instruction">
+        아래 근거에서 <strong>맞는 규칙</strong>의 수를 세어 이 사례의 진단을 골라 보세요.
       </p>
+      <div className="evidence-card" aria-label="이 사례의 규칙 추적 근거">
+        <div className="evidence-card__header">
+          <strong>규칙 추적 근거</strong>
+          <span>맞음 표시를 세어 보세요</span>
+        </div>
+        <ul className="evidence-list">
+          {mission.rules.map((rule) => {
+            const hit = run.matchingRuleIds.includes(rule.id);
+            return (
+              <li key={rule.id} className="evidence-item">
+                <span>{ruleName(rule, mission)}</span>
+                <span className={`badge badge--${hit ? 'ok' : 'warn'}`}>
+                  {hit ? '✓ 맞음' : '✗ 안 맞음'}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+        <p className="evidence-card__note">
+          맞음이 0개면 갭, 1개면 한 규칙, 2개 이상이면 겹침이에요.
+        </p>
+      </div>
       <fieldset>
         <legend>이 사례의 진단은?</legend>
         <div className="choice-list">
@@ -60,7 +81,7 @@ export function DiagnosePanel({ mission, input, record, dispatch }: DiagnosePane
           tone="warning"
           messages={[
             '근거를 다시 세어 볼까요?',
-            '위 추적판에서 "✓ 당첨" 표시가 몇 개인지 다시 세어 보세요. 당첨이 0개면 갭, 2개 이상이면 겹침이에요.',
+            '아래 근거에서 "맞음" 표시가 몇 개인지 다시 세어 보세요. 맞음이 0개면 갭, 1개면 한 규칙, 2개 이상이면 겹침이에요.',
           ]}
         />
       )}
