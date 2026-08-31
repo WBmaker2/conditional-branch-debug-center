@@ -6,10 +6,12 @@
 
 ## 최종 검증 요약
 
+- 최종 공개 HVC 주소: `https://wbmaker2.github.io/conditional-branch-debug-center/`
 - 최종 로컬 HVC 주소: `http://127.0.0.1:4174/`
 - 최종 브라우저 증거: `output/playwright/final-intro-1280.png`, `final-intro-320.png`, `final-diagnose-320.png`, `final-diagnose-wrong-320.png`, `final-repair-320.png`, `final-retest-375.png`
 - 실제 브라우저에서 320/375px 가로 넘침 없음, 진단 근거 재표시·오답 회복·sticky 미션 맥락·압축 라디오·재시험 요약 확인
 - 최종 브라우저 콘솔 오류 0건, 동적 네트워크 요청 0건, 정적 자산 요청 41건 모두 HTTP 200
+- 공개 Pages에서 제목·production JS/CSS·favicon이 HTTP 200이고, 320px 입구→예측→규칙 추적→진단 근거 표시를 확인
 - `npm run lint`, `npm run typecheck`, `npm run check:lines`, `npm run build`, `npm run test:release` 통과
 - 전체 E2E 단독 실행 7건 통과. 통합 `npm run verify`는 브라우저 세션 종료 후에도 2회 모두 마지막 Chromium 기동에서 macOS `MachPortRendezvous` 권한 오류로 종료되어 조건부로 기록한다.
 
